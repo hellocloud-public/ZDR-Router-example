@@ -1,0 +1,256 @@
+{
+  "id": "4d3ab674-f77d-5277-913e-e85a59fc950a",
+  "revision": 0,
+  "last_node_id": 5,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "ZDRRouterVideo",
+      "title": "1. チップ製造（8 秒）",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "extend_from",
+          "type": "VIDEO",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZDRRouterVideo"
+      },
+      "widgets_values": [
+        "Photorealistic cinematic documentary style, clean cool lighting, shallow depth of field, smooth camera motion, no text, no logos.\n\nInside a semiconductor fab cleanroom bathed in amber lithography light.\n[0s-3s] Overhead robotic arms carry a 300mm silicon wafer between machines, technicians in white bunny suits moving in the background.\n[3s-6s] Macro shot: the wafer glides under an extreme-ultraviolet lithography scanner, a grid of identical large GPU dies appears across its mirror-like surface, rainbow diffraction shimmering.\n[6s-8s] Slow push-in to an extreme close-up of a single GPU die on the wafer, intricate circuitry filling the frame.\n\nAudio: low hum of cleanroom air handlers, soft mechanical whirs, subtle ambient electronic score, no voice.",
+        8,
+        "16:9"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "ZDRRouterVideo",
+      "title": "2. パッケージングと組み立て（8 秒）",
+      "pos": [
+        460,
+        0
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "extend_from",
+          "type": "VIDEO",
+          "shape": 7,
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZDRRouterVideo"
+      },
+      "widgets_values": [
+        "Continue seamlessly from the opening frame. Photorealistic cinematic documentary style, clean cool lighting, shallow depth of field, smooth camera motion, no text, no logos.\n\n[0s-2s] The GPU die is cut free from the wafer by a diamond saw and lifted away by a vacuum pick-and-place head.\n[2s-5s] On a packaging line the die is placed onto a silicon interposer next to stacks of high-bandwidth memory and bonded onto a green substrate; macro shots of tiny solder bumps reflowing.\n[5s-8s] The finished GPU package is mounted on a large accelerator board under a heavy metal heat sink; the completed GPU module rests on an anti-static conveyor as the camera pulls back.\n\nAudio: precise robotic clicks and servo motors, the same ambient electronic score continuing, no voice.",
+        8,
+        "16:9"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "ZDRRouterVideo",
+      "title": "3. サーバー構築（7 秒）",
+      "pos": [
+        920,
+        0
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "extend_from",
+          "type": "VIDEO",
+          "shape": 7,
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZDRRouterVideo"
+      },
+      "widgets_values": [
+        "Continue seamlessly from the opening frame. Photorealistic cinematic documentary style, bright clean factory lighting, smooth camera motion, no text, no logos.\n\n[0s-3s] In a server assembly factory a technician in an anti-static smock lifts the GPU module and installs it into an open rack-mount server chassis beside seven identical GPU modules, fans and cables.\n[3s-5s] The server lid closes and the chassis slides into a tall black server rack filled with identical servers.\n[5s-7s] The fully populated rack, wrapped in protective film on a pallet, is wheeled up a ramp into a delivery truck.\n\nAudio: power tools, rack rails sliding, footsteps, the ambient electronic score building, no voice.",
+        7,
+        "16:9"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "ZDRRouterVideo",
+      "title": "4. データセンター搬入（7 秒）",
+      "pos": [
+        1380,
+        0
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "extend_from",
+          "type": "VIDEO",
+          "shape": 7,
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ZDRRouterVideo"
+      },
+      "widgets_values": [
+        "Continue seamlessly from the opening frame. Photorealistic cinematic documentary style, smooth camera motion, no text, no logos.\n\n[0s-2s] The delivery truck drives through the night and pulls up at the loading dock of a large modern data center.\n[2s-5s] Workers roll the wrapped rack through a secure corridor into a cold aisle lined with rows of glowing server racks.\n[5s-7s] The rack is locked into place, the film is pulled away and its status LEDs light up blue; final slow wide shot down the long data hall full of humming servers.\n\nAudio: truck engine and air brakes, then the deep steady hum of the data hall, the ambient electronic score resolving, no voice.",
+        7,
+        "16:9"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveVideo",
+      "title": "動画を保存",
+      "pos": [
+        1840,
+        0
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/zdr_router_gpu_to_datacenter",
+        "auto",
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "VIDEO"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "VIDEO"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "VIDEO"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        40,
+        80
+      ]
+    }
+  },
+  "version": 0.4
+}
