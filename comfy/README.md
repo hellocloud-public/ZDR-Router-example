@@ -26,18 +26,48 @@
 
 ## インストール
 
-ComfyUI の `custom_nodes` フォルダに、このリポジトリを置きます。
+ComfyUI の `custom_nodes` フォルダで、このリポジトリを clone します。追加の Python パッケージは要りません（ComfyUI に入っている `av` と `Pillow` を使います）。
+
+以下のパスは Comfy Desktop で、インストール名を既定の「ComfyUI」のまま作った場合のものです。インストール名を変えた場合は、パスの 1 つ目の `ComfyUI` をその名前に読み替えてください。
+
+### macOS（Comfy Desktop）
+
+ターミナルで次を実行します。
 
 ```bash
-cd ComfyUI/custom_nodes
+cd ~/ComfyUI-Installs/ComfyUI/ComfyUI/custom_nodes
 git clone https://github.com/hellocloud-public/ZDR-Router-example.git
 ```
 
-git を使わない場合は、GitHub の「Code」→「Download ZIP」でダウンロードし、展開したフォルダを `ComfyUI/custom_nodes/` に置いてください。
+### Windows（Comfy Desktop）
 
-追加の Python パッケージは要りません（ComfyUI に入っている `av` と `Pillow` を使います）。
+[Git for Windows](https://git-scm.com/download/win) を入れたうえで、PowerShell で次を実行します。
 
-置いたら ComfyUI を再起動します。ノード一覧の「ZDR Router」カテゴリに「ZDR Router Video (minimax-h3)」が出ていれば完了です。
+```powershell
+cd "$env:LOCALAPPDATA\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes"
+git clone https://github.com/hellocloud-public/ZDR-Router-example.git
+```
+
+古いバージョンの Comfy Desktop で作ったインストールは、`%USERPROFILE%\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes` にあることがあります。
+
+### git を使わない場合
+
+GitHub の「Code」→「Download ZIP」でダウンロードして展開し、できたフォルダ（`ZDR-Router-example-main`）ごと上の `custom_nodes` フォルダに入れます。この方法では、更新するたびに入れ直す必要があります。
+
+### 確認
+
+Comfy Desktop を再起動します。ノード一覧の「ZDR Router」カテゴリに「ZDR Router Video (minimax-h3)」が出ていれば完了です。
+
+### 更新
+
+clone したフォルダで `git pull` し、Comfy Desktop を再起動します。
+
+```bash
+cd ~/ComfyUI-Installs/ComfyUI/ComfyUI/custom_nodes/ZDR-Router-example
+git pull
+```
+
+Windows では `cd "$env:LOCALAPPDATA\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\ZDR-Router-example"` に読み替えてください。
 
 ## API キーの設定
 
@@ -45,23 +75,19 @@ git を使わない場合は、GitHub の「Code」→「Download ZIP」でダ�
 2. コンソールで発行した API キーを貼り付けて OK を押します
 3. 「API キーを保存しました」と出れば完了です。次回からは聞かれません
 
-キーはこのフォルダの `api_key.txt` に保存されます。ノードの入力欄には置かないので、ワークフローの JSON や生成した mp4 のメタデータにキーは入りません。`api_key.txt` は `.gitignore` に入れてあるので、git にコミットされることもありません。
+キーは `custom_nodes/ZDR-Router-example/comfy/api_key.txt` に保存されます。ノードの入力欄には置かないので、ワークフローの JSON や生成した mp4 のメタデータにキーは入りません。`api_key.txt` は `.gitignore` に入れてあるので、git にコミットされることもありません。
 
 キーを変えたいときは、`api_key.txt` を削除してからワークフローを開き直すと、もう一度入力欄が出ます。直接書き換えても構いません。
 
 ## サンプルワークフロー
 
-`example_workflows/` に 3 本入っています。ComfyUI のメニューの Workflow → Browse Templates を開くと、「ZDR-Router-example」の下に並んでいます。JSON ファイルを ComfyUI の画面にドラッグ＆ドロップしても開けます。
+`custom_nodes/ZDR-Router-example/comfy/example_workflows/` に入っています。JSON ファイルを ComfyUI の画面にドラッグ＆ドロップすると開けます。
 
 | ファイル | 内容 | 長さ |
 | --- | --- | --- |
-| `zdr-router-minimax-h3-extend.json` | 1 本目を作り、その続きを Extend で 2 本目として作ってつなげる基本形 | 5 秒 + 5 秒 |
 | `zdr-router-gpu-to-datacenter-30s.json` | GPU の製造からデータセンターへの搬入までを 4 本の Extend でつなげた 30 秒の動画 | 8 + 8 + 7 + 7 秒 |
-| `zdr-router-nsfw.json` | 成人向けの表現を含むプロンプトのサンプル | 5 秒 |
 
 開いたら「実行」（Queue / Run）を押します。完成した動画は `ComfyUI/output/video/` に mp4 で保存されます。
-
-`zdr-router-nsfw.json` には裸の人物を描写するプロンプトが入っています。開く前に、利用する環境や公開先の規約に合うか確認してください。
 
 ## ノードの使い方
 
@@ -101,6 +127,7 @@ git を使わない場合は、GitHub の「Code」→「Download ZIP」でダ�
 
 | 表示 | 原因と対処 |
 | --- | --- |
+| 「ZDR Router」カテゴリが出ない | clone した場所が、使っているインストールの `custom_nodes` か確認してください（[インストール](#インストール)のパス）。合っていれば、Comfy Desktop のログで `ZDR-Router-example` の行に `IMPORT FAILED` が出ていないか確認してください |
 | `FileNotFoundError: ... api_key.txt` | API キーが設定されていません。ワークフローを開き直して入力欄からキーを入れてください |
 | `ZDR Router 401: ...` | API キーが間違っているか、無効になっています。`api_key.txt` を削除して入れ直してください |
 | `ZDR Router 402: ...` | クレジットが足りません。コンソールでチャージしてください |
